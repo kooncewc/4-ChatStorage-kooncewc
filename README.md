@@ -14,9 +14,9 @@ how many points out of 20 do you deserve on this assignment:
 
 ## Self-Reflection:
 <!-- Write your self-reflection under this line -->
-I'm able to get the program to read the messages from the url, but I'm unable to get the messages to append. If I isolate the code and just display the messages, I'm able to get them to display. But I'm unable to get them to display in the chatbox and edit. When I run a function individually such as the update, or the read messages, It seems to be working, I encounter issues when I put all the functions together and when I try to submit messages. I tried searching around and editing code to get them working, but I was unable to find the exact cause.
+The program from last week wasn't posting for me so I was unable to test my saving in this application. I was able to test saving  to localstorage using a different program but not this one. I added comments to where I included new code so that it's able to read. I created an update message and a save message function, then added a condition to the send message that if name is empty in local storage, to send an alert that they have to send a message. I was unable to test functionality,but the logic of the code seems to properly work
 ### How long it took me to finish this?
-5 hours
+3 hours
 
 ## Discussion Questions:
 1. What does the bootstrap `display-4` class do?

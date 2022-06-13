@@ -6,6 +6,13 @@ const serverURL = `https://it3049c-chat-application.herokuapp.com/messages`;
 const request = new XMLHttpRequest();
 const MILLISECONDS_IN_TEN_SECONDS = 10000;
 
+//define local storage variables
+MYname = localStorage.setItem("name",JSON.stringify(nameInput));
+SAVEName = localStorage.setItem("name",JSON.stringify(nameInput));
+const updateButton = document.getElementById("update-button");
+const saveButton = document.getElementById("save-button");
+
+
 
 
 function updateMessagesInChatBox(request){
@@ -94,9 +101,11 @@ function sendMessages(username, text) {
       },
       body: JSON.stringify(newMessage)
   });
-}
+
+//if name is empty in local storage, send message,otherwise send message
+if (localStorage.getItem('name') != null){
 if (sendButton){
-sendButton.addEventListener("click", function(sendButtonClickEvent) {
+sendButton.addEventListener("click", function(sendButtonClickEvent)  {
   sendButtonClickEvent.preventDefault();
   const sender = nameInput.value;
   const message = myMessage.value;
@@ -104,6 +113,33 @@ sendButton.addEventListener("click", function(sendButtonClickEvent) {
   sendMessages(sender,message);
   myMessage.value = "";
 });
+}
+}
+
+else {
+  JOptionPane.showMessageDialog(null,"You must save a name first!");
+}
+}
+
+
+//name update function
+function updateName(MYname) {
+if (updateButton)
+  updateButton.addEventListener("click",function(updateButtonClickEvent) {
+  updateButtonClickEvent.preventDefault();
+  localStorage.setItem("name",MYname);
+
+});
+
+}
+function SaveName(MYname)
+{
+if (saveButton)
+saveButton.addEventListener("click",function(saveButtonClickEvent) {
+  saveButtonClickEvent.preventDefault();
+  localStorage.setItem("name",MYname);
+});
+
 }
 setInterval(updateMessages, MILLISECONDS_IN_TEN_SECONDS);
 updateMessages();
